@@ -1,0 +1,55 @@
+Sequences Practice Problems
+1) Use Random Function (( RANDOM )) to get Single Digit
+solution=$ echo $(($RANDOM % 10))
+2. Use Random to get Dice Number between 1 to 6 
+solution=$(( ( RANDOM % 10 ) + 1))
+         $(( ( RANDOM % 5 + 1 ))
+3. Add two Random Dice Number and Print the Result
+solution = 
+ #! /bin/bash 
+ dice1=$((RANDOM%6))
+ dice2=$((RANDOM%6))
+ sum=$((dice1+dice2))
+ echo=$sum
+4. Write a program that reads 5 Random 2 Digit values , then find their  sum and the average 
+solution=
+#!/bin/bash
+
+echo "Please enter your first number: "
+read a
+echo "Second number: "
+read b
+echo "Third number: "
+read c
+echo "Fourth number: "
+read d
+echo "Fifth number: "
+read e
+
+sum=$(($a + $b + $c + $d + $e))
+avg=$(echo $sum / 5 | bc -l ) 
+
+
+echo "The sum of these numbers is: " $sum
+echo "The average of these numbers is: " $avg
+
+
+Output=
+Please enter your first number: 
+2
+Second number: 
+2
+Third number: 
+2
+Fourth number: 
+3
+Fifth number: 
+2
+The sum of these numbers is:  11
+The average of these numbers is:  2.20000000000000000000
+
+5. Unit Conversion  
+a. 1ft = 12 in then 42 in = 3 feet 6 inches  
+b. Rectangular Plot of 60 feet x 40 feet in meters =731.52 m (in square meter is 218)
+c. Calculate area of 25 such plots in acres=4.51 acre
+

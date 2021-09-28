@@ -1,0 +1,173 @@
+        Selection Practice Problems with if & else 
+
+1. Write a program that reads 5 Random 3 Digit values and then outputs the minimum  and the maximum value 
+solution=
+m=$(((RANDOM%99)+100))
+n=$(((RANDOM%9)+100))
+o=$(((RANDOM%99)+100))
+p=$(((RANDOM%99)+100))
+q=$(((RANDOM%99)+100))
+
+echo $m; echo $n; echo $o; echo $p; echo $q
+
+if (( ($m>$n) && ($m>$o) && ($m>$p) && ($m>$q) )); then
+        echo "maximum number is $m"
+elif (( ($n>$m) && ($n>$o) && ($n>$p) && ($n>$q) )); then
+        echo "maximum number is $n"
+elif (( ($o>$m) && ($o>$n) && ($o>$p) && ($o>$q) )); then
+        echo "maximum number is $o"
+elif (( ($p>$m) && ($p>$o) && ($p>$n) && ($p>$q) )); then
+        echo "maximum number is $p"
+else
+        echo "maximum number is $q"
+fi
+
+#minimum value
+if (( ($m<$n) && ($m<$o) && ($m<$p) && ($m<$q) )); then
+        echo "maximum number is $m"
+elif (( ($n<$m) && ($n<$o) && ($n<$p) && ($n<$q) )); then
+        echo "maximum number is $n"
+elif (( ($o<$m) && ($o<$n) && ($o<$p) && ($o<$q) )); then
+        echo "maximum number is $o"
+elif (( ($p<$m) && ($p<$o) && ($p<$n) && ($p<$q) )); then
+        echo "maximum number is $p"
+else
+        echo "maximum number is $q"
+fi
+
+2. Write a program that takes day and month from the command line and prints true if  day of month is between March 20 and June 20, false otherwise. 
+solution= first method
+#!/bin/bash -x
+
+read -p " Enter Date:-" date
+read -p " Enter Month:-" Month
+
+if (( ($Month <= 6 & $date <= 20) ))
+then
+        echo $Month $date "True";
+
+elif (( ($Month >= 3 & $Month < 6) & ($date<31)  ))
+then
+        echo $date $Month "True";
+
+else
+
+        echo "False";
+fi
+      2) second method
+#!/bin/bash -x
+read -p " Enter Date:-" date
+read -p " Enter Month:-" Month
+
+if (( ($Month <= 6 && $date <= 20) && (($Month >= 3 && $date <= 20) && ($date<31)) ))
+then
+        echo $Month $date "True";
+else
+
+        echo "False";
+fi
+3. Write a program that takes a year as input and outputs the Year is a Leap Year or not  a Leap Year. A Leap Year checks for 4 Digit Number, Divisible by 4 and  100 unless  divisible by 400. 
+solution
+ #!/bin/bash
+
+echo "Enter the year (YYYY)"
+read year
+
+if[ $((year % 4)) -eq 0] 
+then
+  if[ $((year % 100)) -eq 0] 
+    then
+    if[ $((year % 400)) -eq 0] 
+          then 
+        echo "its a leap year"
+    else
+           echo "its not a leap year"
+    fi
+  else
+  echo "Its not a leap year"
+  fi
+else
+ echo "its not a leap year"
+
+fi
+it showing error on 7th line
+[$((year % 4)) -eq 0 ]
+
+ 2) second method
+echo "enter the year :"
+read y
+a=`expr $y % 4`
+b=`expr $y % 100`
+c=`expr $y % 400`
+# -eq is for equal to
+#-ne is for not equal to  
+if [ $a -eq 0 -a $b -ne 0 -o $c -eq 0 ]
+then
+echo "$y is leap year"
+else
+echo "$y is not leap year"
+fi
+
+4. Write a program to simulate a coin flip and print out "Heads" or "Tails" accordingly.
+solution=
+#!/bin/bash
+FLIP=$(($(($RANDOM%10))%2))
+if [ $FLIP -eq 1 ];then
+    echo "heads"
+else
+    echo "tails"
+fi
+
+Selection Practice Problems with if, elif and else
+
+1. Read a single digit number and write the number in word
+solution=
+echo -n "Enter number: "
+read n
+ 
+len=$(echo $n | wc -c)
+len=$(( $len - 1 ))
+ 
+echo "Your number $n in words : "
+for (( i=1; i<=$len; i++ ))
+do
+   # get one digit at a time
+    digit=$(echo $n | cut -c $i)
+   # use case control structure to find digit equivalent in words 
+    case $digit in
+        0) echo -n "zero " ;;
+        1) echo -n "one " ;;
+        2) echo -n "two " ;;
+        3) echo -n "three " ;;
+        4) echo -n "four " ;;
+        5) echo -n "five " ;;
+        6) echo -n "six " ;;
+        7) echo -n "seven " ;;
+        8) echo -n "eight " ;;
+        9) echo -n "nine " ;;
+    esac	
+done
+2. Read a Number and Display the week day (Sunday, Monday,…)
+echo "enter a number"
+read n
+case $n in
+1) echo "Sunday" ;;
+2) echo "Monday" ;;
+3) echo "Tuesday" ;;
+4) echo "Wednesday" ;;
+5) echo "Thursday" ;;
+6) echo "Friday" ;;
+7) echo "Saturday" ;;
+*) echo "enter value between 1 to 7" ;;
+esac
+Output =
+$ sh a.sh
+Enter number 
+6
+Friday
+
+4) Write a program that takes User Inputs and does Unit Conversion of  different Length units 
+1. Feet to Inch = 1ft = 12 inch 3. Inch to Feet = 1 inch =0.0833 feet
+2. Feet to Meter = 1feet=0.305 meter 4. Meter to Feet=1 meter=3 feet 3.37 inches
+
+
